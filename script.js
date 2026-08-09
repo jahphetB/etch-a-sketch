@@ -10,8 +10,20 @@ function createGrid(size) {
         square.style.width = `${squareSize}px`;
         square.style.height = `${squareSize}px`;
 
+        let opacity = 0;
+
         square.addEventListener("mouseenter", function () {
-            square.style.backgroundColor = "black";
+            const red = Math.floor(Math.random() * 256);
+            const green = Math.floor(Math.random() * 256);
+            const blue = Math.floor(Math.random() * 256);
+
+            square.style.backgroundColor = `rgb(${red}, ${green}, ${blue})`;
+
+            if (opacity < 1) {
+                opacity += 0.1;
+            }
+
+            square.style.opacity = opacity;
         });
 
         container.appendChild(square);
